@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
 import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyC6KyCFogzYntzvkFqzM5abOS0GvjzJwb4',
   authDomain: 'react-chat-25a57.firebaseapp.com',
@@ -12,9 +12,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
